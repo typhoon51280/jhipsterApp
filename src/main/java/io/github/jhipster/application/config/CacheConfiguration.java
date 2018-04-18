@@ -44,6 +44,11 @@ public class CacheConfiguration {
             cm.createCache(io.github.jhipster.application.domain.User.class.getName() + ".authorities", jcacheConfiguration);
             cm.createCache(io.github.jhipster.application.domain.PersistentToken.class.getName(), jcacheConfiguration);
             cm.createCache(io.github.jhipster.application.domain.User.class.getName() + ".persistentTokens", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Nazione.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Nazione.class.getName() + ".regionis", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Regione.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Regione.class.getName() + ".provinces", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Provincia.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

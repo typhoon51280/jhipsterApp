@@ -1,0 +1,48 @@
+
+<div *ngIf="provincia">
+    <h2><span>Provincia</span> {{provincia.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Nome</span></dt>
+        <dd>
+            <span>{{provincia.nome}}</span>
+        </dd>
+        <dt><span>Prefisso</span></dt>
+        <dd>
+            <span>{{provincia.prefisso}}</span>
+        </dd>
+        <dt><span>Codice</span></dt>
+        <dd>
+            <span>{{provincia.codice}}</span>
+        </dd>
+        <dt><span>Abitanti</span></dt>
+        <dd>
+            <span>{{provincia.abitanti}}</span>
+        </dd>
+        <dt><span>Area</span></dt>
+        <dd>
+            <span>{{provincia.area}}</span>
+        </dd>
+        <dt><span>Regione</span></dt>
+        <dd>
+            <div *ngIf="provincia.regione">
+                <a [routerLink]="['/regione', provincia.regione?.id]">{{provincia.regione?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'provincia/'+ provincia.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>
