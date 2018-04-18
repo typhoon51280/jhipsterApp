@@ -1,0 +1,35 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "regioni",
+            "otherEntityName": "regione",
+            "otherEntityRelationshipName": "nazione"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "prefisso",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codice",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codiceLingua",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180418085315",
+    "entityTableName": "nazione",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false
+}

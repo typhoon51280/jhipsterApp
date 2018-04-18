@@ -1,0 +1,39 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "regione",
+            "otherEntityName": "regione",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "prefisso",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "codice",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "abitanti",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "area",
+            "fieldType": "Double"
+        }
+    ],
+    "changelogDate": "20180418085317",
+    "entityTableName": "provincia",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false
+}
