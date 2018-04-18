@@ -1,0 +1,29 @@
+entity Nazione {
+    nome String
+    prefisso String
+    codice String
+    codiceLingua String
+}
+
+entity Regione {
+	nome String
+    abitanti Long
+    area Double
+}
+
+entity Provincia {
+	nome String
+    prefisso String
+    codice String
+    abitanti Long
+    area Double
+}
+
+relationship OneToMany {
+	Nazione{regioni} to Regione{nazione}
+    Regione{province} to Provincia{regione}
+}
+
+service * with serviceClass
+paginate * with pagination
+
