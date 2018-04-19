@@ -660,6 +660,31 @@
                         <version>${frontend-maven-plugin.version}</version>
                         <executions>
                             <execution>
+                                <id>webpack build dev</id>
+                                <goals>
+                                    <goal>yarn</goal>
+                                </goals>
+                                <phase>generate-resources</phase>
+                                <configuration>
+                                    <arguments>run webpack:build</arguments>
+                                    <yarnInheritsProxyConfigFromMaven>false</yarnInheritsProxyConfigFromMaven>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>webpack-install</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.github.eirslett</groupId>
+                        <artifactId>frontend-maven-plugin</artifactId>
+                        <version>${frontend-maven-plugin.version}</version>
+                        <executions>
+                            <execution>
                                 <id>install node and yarn</id>
                                 <goals>
                                     <goal>install-node-and-yarn</goal>
@@ -670,14 +695,12 @@
                                 </configuration>
                             </execution>
                             <execution>
-                                <id>webpack build dev</id>
+                                <id>yarn install</id>
                                 <goals>
                                     <goal>yarn</goal>
                                 </goals>
-                                <phase>generate-resources</phase>
                                 <configuration>
-                                    <arguments>run webpack:build</arguments>
-                                    <yarnInheritsProxyConfigFromMaven>false</yarnInheritsProxyConfigFromMaven>
+                                    <arguments>install</arguments>
                                 </configuration>
                             </execution>
                         </executions>
