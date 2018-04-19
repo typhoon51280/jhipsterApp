@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="regione">
+            <h2><span>Regione</span> {{regione.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Nome</span></dt>
+                <dd>
+                    <span>{{regione.nome}}</span>
+                </dd>
+                <dt><span>Abitanti</span></dt>
+                <dd>
+                    <span>{{regione.abitanti}}</span>
+                </dd>
+                <dt><span>Area</span></dt>
+                <dd>
+                    <span>{{regione.area}}</span>
+                </dd>
+                <dt><span>Nazione</span></dt>
+                <dd>
+                    <div *ngIf="regione.nazione">
+                        <a [routerLink]="['/nazione', regione.nazione?.id, 'view']">{{regione.nazione?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/regione', regione.id, 'edit']"
+                    class="btn btn-primary">
+                <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

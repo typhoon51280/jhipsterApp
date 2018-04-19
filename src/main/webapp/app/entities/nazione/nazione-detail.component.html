@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="nazione">
+            <h2><span>Nazione</span> {{nazione.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Nome</span></dt>
+                <dd>
+                    <span>{{nazione.nome}}</span>
+                </dd>
+                <dt><span>Prefisso</span></dt>
+                <dd>
+                    <span>{{nazione.prefisso}}</span>
+                </dd>
+                <dt><span>Codice</span></dt>
+                <dd>
+                    <span>{{nazione.codice}}</span>
+                </dd>
+                <dt><span>Codice Lingua</span></dt>
+                <dd>
+                    <span>{{nazione.codiceLingua}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/nazione', nazione.id, 'edit']"
+                    class="btn btn-primary">
+                <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

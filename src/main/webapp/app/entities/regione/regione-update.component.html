@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-regione-heading">Create or edit a Regione</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!regione.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="regione.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_nome">Nome</label>
+                    <input type="text" class="form-control" name="nome" id="field_nome"
+                        [(ngModel)]="regione.nome" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_abitanti">Abitanti</label>
+                    <input type="number" class="form-control" name="abitanti" id="field_abitanti"
+                        [(ngModel)]="regione.abitanti" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_area">Area</label>
+                    <input type="number" class="form-control" name="area" id="field_area"
+                        [(ngModel)]="regione.area" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_nazione">Nazione</label>
+                    <select class="form-control" id="field_nazione" name="nazione" [(ngModel)]="regione.nazione" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="nazioneOption.id === regione.nazione?.id ? regione.nazione : nazioneOption" *ngFor="let nazioneOption of naziones; trackBy: trackNazioneById">{{nazioneOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
