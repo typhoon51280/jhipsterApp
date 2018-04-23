@@ -56,17 +56,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         this.corsFilter = corsFilter;
         this.problemSupport = problemSupport;
     }
+    
 
-    @PostConstruct
-    public void init() {
-        try {
-            authenticationManagerBuilder
-                .userDetailsService(userDetailsService)
-                .passwordEncoder(passwordEncoder());
-        } catch (Exception e) {
-            throw new BeanInitializationException("Security configuration failed", e);
-        }
-    }
+//	@PostConstruct
+//    public void init() {
+//        try {
+//            authenticationManagerBuilder
+//                .userDetailsService(userDetailsService)
+//                .passwordEncoder(passwordEncoder());
+//        } catch (Exception e) {
+//            throw new BeanInitializationException("Security configuration failed", e);
+//        }
+//    }
 
     @Override
     @Bean
@@ -152,6 +153,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .antMatchers("/v2/api-docs/**").permitAll()
             .antMatchers("/swagger-resources/configuration/ui").permitAll()
             .antMatchers("/swagger-ui/index.html").hasAuthority(AuthoritiesConstants.ADMIN);
-
     }
+    
+    @Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.authenticationProvider(new CustomAuthenticationProvider());
+	}
+    
 }
